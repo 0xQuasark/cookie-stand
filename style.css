@@ -1,0 +1,25 @@
+body {
+  font-family: "Arial", sans-serif;
+  color: #333; /* Specified font color for sales data */
+  background-color: #f7f7f7; /* Default page background color */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  color: #0066cc;
+}
+
+.sales-text {
+  color: #666; 
+  font-family: 'Poppins', sans-serif;  
+}
+
+.web-text {
+  color: red;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.box, table {
+  background-color: #f2f2f2;
+}
+
