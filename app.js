@@ -53,9 +53,9 @@ LOCATIONS_SUMMARY.appendChild(newLocationElement);
 // ----------------------------------------------------------
 let tokyo = {
   locationName: 'Tokyo',
-  minCustomers: 23,
-  maxCustomers:	65,
-  avgCookiesPerCustomer:  6.3,
+  minCustomers: 3,
+  maxCustomers:	24,
+  avgCookiesPerCustomer:  1.2,
   hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   generateReport: function() {
     for (let hour of this.hours) {
@@ -93,9 +93,9 @@ LOCATIONS_SUMMARY.appendChild(newLocationElement);
 // ----------------------------------------------------------
 let dubai = {
   locationName: 'Dubai',
-  minCustomers: 23,
-  maxCustomers:	65,
-  avgCookiesPerCustomer:  6.3,
+  minCustomers: 11,
+  maxCustomers:	38,
+  avgCookiesPerCustomer:  3.7,
   hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   generateReport: function() {
     for (let hour of this.hours) {
@@ -133,9 +133,9 @@ LOCATIONS_SUMMARY.appendChild(newLocationElement);
 // ----------------------------------------------------------
 let paris = {
   locationName: 'Paris',
-  minCustomers: 23,
-  maxCustomers:	65,
-  avgCookiesPerCustomer:  6.3,
+  minCustomers: 20,
+  maxCustomers:	38,
+  avgCookiesPerCustomer:  2.3,
   hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   generateReport: function() {
     for (let hour of this.hours) {
@@ -173,9 +173,9 @@ LOCATIONS_SUMMARY.appendChild(newLocationElement);
 // ----------------------------------------------------------
 let lima = {
   locationName: 'Lima',
-  minCustomers: 23,
-  maxCustomers:	65,
-  avgCookiesPerCustomer:  6.3,
+  minCustomers: 2,
+  maxCustomers:	16,
+  avgCookiesPerCustomer:  4.6,
   hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   generateReport: function() {
     for (let hour of this.hours) {
