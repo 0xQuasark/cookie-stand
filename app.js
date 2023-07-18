@@ -31,15 +31,20 @@ seattle.generateReport();       // fills the daily report up
 let newLocationElement = document.createElement('li');
 let p1 = document.createElement('p');
 let p2 = document.createElement('p');
+let p3 = document.createElement('p');
+let salesTotal = 0;
 
 p1.innerHTML += `${seattle.locationName} details:`;
 for (let hour of seattle.hours) {
   let newString = `${hour}: ${seattle.cookiesSoldReport[hour]} cookies<br>`;
-  p2.innerHTML += newString;
+  salesTotal += seattle.cookiesSoldReport[hour];
+  p3.innerHTML += newString;
 }
-p2.innerHTML += '<br><br>';
+p2.innerHTML += '<br>';
+p3.innerHTML += '<strong>' + salesTotal + ' cookies sold.</strong><br><br>';
 newLocationElement.appendChild(p1);
 newLocationElement.appendChild(p2);
+newLocationElement.appendChild(p3);
 
 LOCATIONS_SUMMARY.appendChild(newLocationElement);
 

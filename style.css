@@ -98,4 +98,16 @@ section {
 
 .box, table {
   background-color: #f2f2f2;
+  border: thin solid blue;
+}
+
+thead {
+  background-color: salmon
+
+}
+
+td {
+  min-width: 200px;
+  text-align: center;
+  border: thin solid red;
 }
