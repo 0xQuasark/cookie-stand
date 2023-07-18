@@ -3,45 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salmon Cookies Main Page</title>
+  <title>Salmon Cookies</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <img src="salmon.png">
-    <h1>Salmon Cookies Main Page</h1>
+    <nav>
+      <ul>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
   </header>
+  
   <main>
-    <h2>Sales</h2>
-    <p><a href="sales.html">Comprehensive sales report</a> is available here.</p>
+    <div class="hero">
+      <h1>Salmon Cookies</h1>
+      <p>Freshly Baked Cookies for Everyone</p>
+    </div>
 
-    <h2>Locations</h2>
-    <ul id="locations-list">
-      <li>Seattle</li>
-      <li>Tokyo</li>
-      <li>Dubai</li>
-      <li>Paris</li>
-      <li>Lima</li>
-    </ul>
-    
-    <h2>Hours</h2>
-    <p id="hours-info">
-      Monday - Friday: 6:00 AM - 7:00 PM <br>
-    </p>
-    
-    <h2>Contact Information</h2>
-    <p id="contact-info">
-      Email: info@salmoncookies.com <br>
-      Phone: (123) 456-7890 <br>
-      Address: 123 Cookie Street, Seattle, WA 98101
-    </p>
-    
-    <h2>About Us</h2>
-    <p id="about-us-text">
-      Welcome to Salmon Cookies! We are passionate about baking delicious cookies using the finest ingredients. Our mission is to spread happiness through the love of cookies. Join us in the cookie joy!
-    </p>
+    <section id="locations">
+      <h2>Locations</h2>
+      <ul>
+        <li>Seattle</li>
+        <li>Tokyo</li>
+        <li>Dubai</li>
+        <li>Paris</li>
+        <li>Lima</li>
+      </ul>
+    </section>
 
+    <section id="hours">
+      <h2>Hours</h2>
+      <p>Monday - Friday: 6:00 AM - 8:00 PM</p>
+    </section>
 
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: info@salmoncookies.com</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>Address: 123 Cookie Street, Seattle, WA 98101</p>
+      <p class="sales-text">Sales Text</p>
+      <p class="web-text">Web Text</p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Welcome to Salmon Cookies! We are passionate about baking delicious cookies using the finest ingredients. Our mission is to spread happiness through the love of cookies. Join us in the cookie joy!</p>
+    </section>
   </main>
 </body>
 </html>
