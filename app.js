@@ -37,7 +37,7 @@ for (let hour of seattle.hours) {
   let newString = `${hour}: ${seattle.cookiesSoldReport[hour]} cookies<br>`;
   p2.innerHTML += newString;
 }
-
+p2.innerHTML += '<br><br>';
 newLocationElement.appendChild(p1);
 newLocationElement.appendChild(p2);
 
@@ -78,6 +78,7 @@ for (let hour of tokyo.hours) {
   p2.innerHTML += newString;
 }
 
+p2.innerHTML += '<br><br>';
 newLocationElement.appendChild(p1);
 newLocationElement.appendChild(p2);
 
@@ -118,6 +119,7 @@ for (let hour of dubai.hours) {
   p2.innerHTML += newString;
 }
 
+p2.innerHTML += '<br><br>';
 newLocationElement.appendChild(p1);
 newLocationElement.appendChild(p2);
 
@@ -158,6 +160,7 @@ for (let hour of paris.hours) {
   p2.innerHTML += newString;
 }
 
+p2.innerHTML += '<br><br>';
 newLocationElement.appendChild(p1);
 newLocationElement.appendChild(p2);
 
@@ -188,6 +191,7 @@ let lima = {
 lima.cookiesSoldReport = {}; // creates an object of our daily report
 lima.generateReport();       // fills the daily report up
 
+p2.innerHTML += '<br><br>';
 newLocationElement = document.createElement('li');
 p1 = document.createElement('p');
 p2 = document.createElement('p');
