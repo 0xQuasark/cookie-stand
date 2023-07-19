@@ -46,82 +46,71 @@ let globalHourlySales = [];
 let globalSales = 0;
 
 for (let i = 0; i < numHours; i++){
+  // We iterate over all the applicable hours
   let hourlySales = 0;
   for (let store of locations) {
-    hourlySales += store.cookiesSold[i];
+    hourlySales += store.cookiesSold[i];  // we're now adding sales from all the stores during the same hours
   }
-  globalHourlySales.push(hourlySales);
+  globalHourlySales.push(hourlySales);    // now we capture the number of sales for this hour
 }
 
+
+// --------------------------------------------------------------------
+// This is a useful function to create custom TD entries
+// if no value is given to element, it assumes it's a <TD> tag
+// --------------------------------------------------------------------
+function newCell(newData, element = 'td') {
+  let newCell = document.createElement(element);
+  newCell.innerHTML = newData;
+  return newCell;
+}
 
 // --------------------------------------------------------------------
 // This creates our header for the table
 // --------------------------------------------------------------------
 let headingRow = document.createElement('tr');
-let headingCell = document.createElement('th');
-headingCell.innerHTML = 'Location';             // First header
-headingRow.appendChild(headingCell);
+
+headingRow.appendChild(newCell('Location', 'th'));
 
 for (let i = 0; i < numHours; i++) {
-  let headingCell = document.createElement('th');
-  headingCell.textContent = `${locations[0].hours[i]} Sales`;
-  headingRow.appendChild(headingCell);
+  headingRow.appendChild(newCell(`${locations[0].hours[i]} Sales`, 'th'));
 }
-
-headingCell = document.createElement('th');
-headingCell.innerHTML = 'Daily Location Total'; // Last Header
-headingRow.appendChild(headingCell);
-
 HEADER_TABLE.appendChild(headingRow);
+
 
 // --------------------------------------------------------------------
 // This loops through all the objects in locations, and builds a row in table-body
 // --------------------------------------------------------------------
-for (let storeNumber = 0; storeNumber < locations.length; storeNumber++){
+for (let storeNumber = 0; storeNumber < locations.length; storeNumber++) {
   let currentStore = locations[storeNumber];  // helper variable
   let currentStoreSales = 0;                  // tracks our Daily Location Total
   let row = document.createElement('tr');     // initiate a new row
-  let cell = document.createElement('td');    // initiate a new cell
-  cell.innerHTML += `${currentStore.locationName}`;
-  row.appendChild(cell);                      // first cell gets the stores name
+
+  row.appendChild(newCell(`${currentStore.locationName}`));                      // first cell gets the stores name
 
   for (let i = 0; i < numHours; i++) {
-    cell = document.createElement('td');
-    cell.innerHTML += currentStore.cookiesSold[i];
-    row.appendChild(cell);
-    currentStoreSales += currentStore.cookiesSold[i];
+    row.appendChild(newCell(currentStore.cookiesSold[i]));
+    currentStoreSales += currentStore.cookiesSold[i];         // Daily Location Total increases
   }
-
-  cell = document.createElement('td');
-  cell.innerHTML += currentStoreSales;
   globalSales += currentStoreSales;       // This collects all sales for Daily Sales
-  row.appendChild(cell);
+
+  row.appendChild(newCell(currentStoreSales));
 
   MAIN_TABLE.appendChild(row);
 }
+
 
 // --------------------------------------------------------------------
 // This creates our header for the table
 // --------------------------------------------------------------------
 let footerRow = document.createElement('tr');
-
-// function createCell () {
-
-// }
-
-let footerCell = document.createElement('td');
-footerCell.innerHTML = '<strong>Total</strong>';
-footerRow.appendChild(footerCell);
+footerRow.appendChild(newCell('<strong>Total</strong>'));
 
 for (let i = 0; i < numHours; i++) {
-  let footerCell = document.createElement('td');
-  footerCell.innerHTML = `<strong>${globalHourlySales[i]}</strong>`;
-  footerRow.appendChild(footerCell);
+  footerRow.appendChild(newCell(`<strong>${globalHourlySales[i]}</strong>`));
 }
 
-footerCell = document.createElement('td');
-footerCell.innerHTML = `<strong>${globalSales}</strong>`; // Last Header
-footerRow.appendChild(footerCell);
+footerRow.appendChild(newCell(`<strong>${globalSales}</strong>`));
 
 FOOTER_TABLE.appendChild(footerRow);
 
