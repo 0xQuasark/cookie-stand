@@ -1,7 +1,6 @@
 /* eslint-disable no-multi-spaces */
 'use strict';
 
-
 const HEADER_TABLE = document.getElementById('table-header');
 const MAIN_TABLE = document.getElementById('table-body');
 const FOOTER_TABLE = document.getElementById('table-footer');
@@ -16,11 +15,13 @@ function Store(nameValue, minCust, maxCust, avgCust) {
 Store.prototype.hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 Store.prototype.randomNumberGenerator = function(min, max) {
-  let range = max - min + 1;
-  let randomNumber = Math.random() * range;
-  randomNumber += min;
-  return Math.floor(randomNumber);
+  // let range = max - min + 1;
+  // let randomNumber = Math.random() * range;
+  // randomNumber += min;
+  // return Math.floor(randomNumber);
+  return Math.floor(Math.random() * (max - min + 1)) + min; // Thanks for this one GPT!
 };
+
 Store.prototype.generateCookiesSoldReport = function () {
   this.cookiesSold = [];
   for (let i = 0; i < this.hours.length; i++) {
@@ -29,23 +30,32 @@ Store.prototype.generateCookiesSoldReport = function () {
   }
 };
 
-let locations = [];
+// let locations = [];
+// locations.push(new Store('Seattle', 23, 65, 6.3));
+// locations.push(new Store('Tokyo', 3, 24, 1.2));
+// locations.push(new Store('Dubai', 11, 38, 3.7));
+// locations.push(new Store('Paris', 20, 38, 2.3));
+// locations.push(new Store('Lima', 2, 16, 4.6));
 
-locations.push(new Store('Seattle', 23, 65, 6.3));
-locations.push(new Store('Tokyo', 3, 24, 1.2));
-locations.push(new Store('Dubai', 11, 38, 3.7));
-locations.push(new Store('Paris', 20, 38, 2.3));
-locations.push(new Store('Lima', 2, 16, 4.6));
+// GPT suggested a better way than the above:
+let locations = [
+  new Store('Seattle', 23, 65, 6.3),
+  new Store('Tokyo', 3, 24, 1.2),
+  new Store('Dubai', 11, 38, 3.7),
+  new Store('Paris', 20, 38, 2.3),
+  new Store('Lima', 2, 16, 4.6)
+];
 
-let numHours = locations[0].hours.length; // helper variable to make sure we loop; should be 14
+// i do not like this hack:
+const numHours = locations[0].hours.length; // helper variable to make sure we loop; should be 14
 
 // --------------------------------------------------------------------
 // This works out our hourly sales across all stores
 // --------------------------------------------------------------------
-let globalHourlySales = [];
+const globalHourlySales = [];
 let globalSales = 0;
 
-for (let i = 0; i < numHours; i++){
+for (let i = 0; i < numHours; i++) {
   // We iterate over all the applicable hours
   let hourlySales = 0;
   for (let store of locations) {
@@ -60,7 +70,7 @@ for (let i = 0; i < numHours; i++){
 // if no value is given to element, it assumes it's a <TD> tag
 // --------------------------------------------------------------------
 function newCell(newData, element = 'td') {
-  let newCell = document.createElement(element);
+  const newCell = document.createElement(element);
   newCell.innerHTML = newData;
   return newCell;
 }
@@ -73,8 +83,11 @@ let headingRow = document.createElement('tr');
 headingRow.appendChild(newCell('Location', 'th'));
 
 for (let i = 0; i < numHours; i++) {
-  headingRow.appendChild(newCell(`${locations[0].hours[i]} Sales`, 'th'));
+  headingRow.appendChild(newCell(`${locations[0].hours[i]} sales`, 'th'));
 }
+
+headingRow.appendChild(newCell('Daily Location Total', 'th'));
+
 HEADER_TABLE.appendChild(headingRow);
 
 
@@ -86,9 +99,9 @@ for (let storeNumber = 0; storeNumber < locations.length; storeNumber++) {
   let currentStoreSales = 0;                  // tracks our Daily Location Total
   let row = document.createElement('tr');     // initiate a new row
 
-  row.appendChild(newCell(`${currentStore.locationName}`));                      // first cell gets the stores name
+  row.appendChild(newCell(`${currentStore.locationName}`)); // first cell gets the stores name
 
-  for (let i = 0; i < numHours; i++) {
+  for (let i = 0; i < currentStore.hours.length; i++) {
     row.appendChild(newCell(currentStore.cookiesSold[i]));
     currentStoreSales += currentStore.cookiesSold[i];         // Daily Location Total increases
   }
@@ -101,7 +114,7 @@ for (let storeNumber = 0; storeNumber < locations.length; storeNumber++) {
 
 
 // --------------------------------------------------------------------
-// This creates our header for the table
+// This creates our footer for the table
 // --------------------------------------------------------------------
 let footerRow = document.createElement('tr');
 footerRow.appendChild(newCell('<strong>Total</strong>'));
