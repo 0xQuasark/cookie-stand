@@ -100,6 +100,10 @@ section {
   justify-content: center;
 }
 
+img {
+  height: 100px;
+}
+
 table {
   background-color: #f2f2f2;
   border: thin solid blue;
