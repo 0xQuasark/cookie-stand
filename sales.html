@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sales Page</title>
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,6 +20,32 @@
       </ul>
     </nav>
   </header>
+  <form id="location-form">
+    <fieldset>
+      <legend>Add a New Location</legend>
+      <div class="store-input">
+        <label for="location-name">Pokemon Name</label>
+        <input id="location-name" type="text" name="locationName" placeholder="Enter new location" value="Test" required>
+      </div>
+      <div class="store-input">
+        <label for="min-customers">Minimum Customers</label>
+        <input id="min-customers" type="text" name="minCustomers" placeholder="Enter minimum customers" value="1" required>
+      </div>
+      <div class="store-input">
+        <label for="max-customers">Maximum Customers</label>
+        <input id="max-customers" type="text" name="maxCustomers" placeholder="Enter maximum customers" value="2" required>
+      </div>
+      <div class="store-input">
+        <label for="avg-cookie-per-customer">Average Cookies Per Customer</label>
+        <input id="avg-cookie-per-customer" type="text" name="avgCookiesPerCustomer" placeholder="Enter minimum customers" value="3" required>
+      </div>
+      <!-- 
+        id = is for css and other things
+        name = is going to parse the variable to our JS
+      -->
+      <button type="submit">Create new store</button>
+    </fieldset>
+  </form>
 
   <main>
     <h1>Sales Page</h1>

@@ -10,6 +10,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #0066cc;
 }
 
+
 /* Global Styles */
 body {
   font-family: Arial, sans-serif;
@@ -56,7 +57,6 @@ nav a:hover {
 
 main {
   max-width: 900px;
-  margin: 0 auto;
   padding: 20px;
 }
 
@@ -95,34 +95,50 @@ section {
   font-family: 'Noto Sans', sans-serif;
 }
 
-.table-container {
-  display: flex;
-  justify-content: center;
-}
-
-img {
-  height: 100px;
-}
-
-table {
+.box, table {
   background-color: #f2f2f2;
   border: thin solid blue;
-  /* display: flex;
-  flex-direction: column; */
+  margin-left: 5px;
 }
 
 thead {
+  background-color: salmon
+
+}
+
+th {
   background-color: salmon;
+  border: thin solid green;
+  font-weight: bold;
 }
 
-td, th {
-  flex: 1;
-  min-width: 50px;
+td {
+  min-width: 80px;
   text-align: left;
-  border: thin solid red;
+  padding-left: 15px;
+  border: thin solid grey;
 }
 
-h2 {
-  /* background-color: blue; */
-  padding-top: 50px;
+fieldset {
+
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: rgb(192, 192, 192);
+  border-image: initial;
+  font-weight: bold;
+}
+
+label {
+  font-weight: normal;
+}
+strong {
+  font-weight: bold;
 }
