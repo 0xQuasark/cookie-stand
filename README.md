@@ -2,6 +2,9 @@
 
 ## Lighthouse
 
+### Thursday Lighthouse report
+![Thursday's output](lighthouse_thursday.png)
+
 ### Monday
 ![Monday's output](lighthouse_monday.png)
 
